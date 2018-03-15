@@ -14,15 +14,16 @@ public class Main {
     public enum DayOfTheWeek {
         SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
     }
+
     public enum Courses {
         CPSC2730, PHIL2040, PHED2400, MATH2030
     }
+
     public enum Category {
         HOMEWORK, QUIZ, TEST, PRESENTATION, FINAL_EXAM
     }
-    public enum Priority {
-        ONE, TWO, THREE
-    }
+
+
 
     public static void main(String[] args) {
         System.out.println("\n\nHello, AssignmentsApp!\n");
@@ -111,11 +112,41 @@ public class Main {
         System.out.println("The formatted date is " + formattedDate(hundredRandomDates.get(sc.nextInt())));
         //I had completely forgotten to submit the previous story, so if it looks like I completed this story incredibly quickly, it's because I temporarily removed this code so I could post the for the previous story.
 
-        // TODO Use DayOfTheWeek enumerated types
+        // Use DayOfTheWeek enumerated types
+        System.out.println("Day: " + DayOfTheWeek.MONDAY);
+        System.out.println("Day: " + DayOfTheWeek.TUESDAY);
+        System.out.println("Day: " + DayOfTheWeek.WEDNESDAY);
+        System.out.println("Day: " + DayOfTheWeek.THURSDAY);
+        System.out.println("Day: " + DayOfTheWeek.FRIDAY);
+        System.out.println("Day: " + DayOfTheWeek.SATURDAY);
+        System.out.println("Day: " + DayOfTheWeek.SUNDAY);
+        System.out.println();
+        System.out.println();
 
 
-        // TODO Create Assignment class
+        // Use Course enumerated types
+        System.out.println("Course: " + Courses.CPSC2730);
+        System.out.println("Course: " + Courses.MATH2030);
+        System.out.println("Course: " + Courses.PHED2400);
+        System.out.println("Course: " + Courses.PHIL2040);
+        System.out.println();
+        System.out.println();
 
+        // Use Category enumerated Category types
+        System.out.println("Category: " + Category.FINAL_EXAM);
+        System.out.println("Category: " + Category.HOMEWORK);
+        System.out.println("Category: " + Category.PRESENTATION);
+        System.out.println("Category: " + Category.QUIZ);
+        System.out.println("Category: " + Category.TEST);
+        System.out.println();
+        System.out.println();
+
+        // Create Assignment class
+        int priority = rand.nextInt(3) + 1;
+        Assignment assign1 = new Assignment(randomDateGenerator(), randomCourse(), randomCategory(), priority);
+        Assignment assign2 = new Assignment(randomDateGenerator(), randomCourse(), randomCategory(), priority);
+        System.out.println("Assignment 1: " + assign1 + "\nAssignment 2: " + assign2);
+        System.out.println();
     }
 
     private static String formattedDate(LocalDateTime date) {
@@ -218,5 +249,17 @@ public class Main {
             earlyDate = date2;
         }
         return earlyDate;
+    }
+
+    private static DayOfTheWeek randomDayOfTheWeek() {
+        return DayOfTheWeek.values()[new Random().nextInt(DayOfTheWeek.values().length)];
+    }
+
+    private static Courses randomCourse() {
+        return Courses.values()[new Random().nextInt(Courses.values().length)];
+    }
+
+    private static Category randomCategory() {
+        return Category.values()[new Random().nextInt(Category.values().length)];
     }
 }
