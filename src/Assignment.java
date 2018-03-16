@@ -17,4 +17,15 @@ public class Assignment {
     public String toString() {
         return "\nDate: " + date + "\nCourse: " + course + "\n" + category;
     }
+
+    // Override equals method
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    
+
+
+
 }

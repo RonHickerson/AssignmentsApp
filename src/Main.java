@@ -110,6 +110,8 @@ public class Main {
         //Output a date in the format "January 1st, 2018".
         System.out.print("\nWhat is the index of the date you want to be outputted in the format \"January 1st, 2018\"? ");
         System.out.println("The formatted date is " + formattedDate(hundredRandomDates.get(sc.nextInt())));
+        System.out.println();
+        System.out.println();
         //I had completely forgotten to submit the previous story, so if it looks like I completed this story incredibly quickly, it's because I temporarily removed this code so I could post the for the previous story.
 
         // Use DayOfTheWeek enumerated types
@@ -147,6 +149,11 @@ public class Main {
         Assignment assign2 = new Assignment(randomDateGenerator(), randomCourse(), randomCategory(), priority);
         System.out.println("Assignment 1: " + assign1 + "\nAssignment 2: " + assign2);
         System.out.println();
+
+        // Copy assign1 to assign3
+        Assignment assign3 = assign1;
+        System.out.println("Assignment 3: " + assign3);
+
     }
 
     private static String formattedDate(LocalDateTime date) {
@@ -262,4 +269,5 @@ public class Main {
     private static Category randomCategory() {
         return Category.values()[new Random().nextInt(Category.values().length)];
     }
+
 }
